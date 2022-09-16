@@ -25,7 +25,7 @@ abstract class MongoModel<T> implements IModel<T> {
   public async update(_id: string, obj: T): Promise<T | null> {
     if (!isValidObjectId(_id)) throw Error('InvalidMongoId');
 
-    return this._model.findOneAndUpdate(
+    return this._model.findByIdAndUpdate( // corrigindo para fazer a busca pelo ID
       { _id },
       { ...obj } as UpdateQuery<T>,
       { new: true },
@@ -35,7 +35,7 @@ abstract class MongoModel<T> implements IModel<T> {
   public async delete(_id: string): Promise<T | null> {
     if (!isValidObjectId(_id)) throw Error('InvalidMongoId');
   
-    return this._model.findOneAndDelete({ _id });
+    return this._model.findByIdAndRemove({ _id }); // corrigindo para fazer a busca pelo ID
   }
 }
 
