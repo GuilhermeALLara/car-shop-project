@@ -35,7 +35,7 @@ describe('CarModel tests', () => {
   describe('EndPoint GET /cars', () => {
     it('Caso todos os carros sejam listados com sucesso', async () => {
       const allCarFound = await carModel.read();
-      expect(allCarFound).to.be.deep.equal(carMockWithId);
+      expect(allCarFound).to.be.deep.equal([carMockWithId]);
     });
   });
 
