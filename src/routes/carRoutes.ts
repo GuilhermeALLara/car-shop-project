@@ -18,4 +18,7 @@ router.get('/cars', (req: Request, res: Response) =>
 router.get('/cars/:id', (req: Request, res: Response) =>
   carController.readOne(req, res));
 
+router.put('/cars/:id', (req: Request, res: Response) =>
+  carController.update(req, res));
+
 export default router;
